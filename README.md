@@ -45,6 +45,8 @@
 5. Убедитесь, что теперь вы можете выполнить команды `terraform destroy` и `terraform apply` без дополнительных ручных действий.
 6. В случае использования [Terraform Cloud](https://app.terraform.io/) в качестве [backend](https://www.terraform.io/docs/language/settings/backends/index.html) убедитесь, что применение изменений успешно проходит, используя web-интерфейс Terraform cloud.
 ![image](https://github.com/user-attachments/assets/6f6470c0-4ab0-4cea-9747-c82f18914d58)
+![image](https://github.com/user-attachments/assets/db8d4452-e859-454e-bced-66443d655517)
+![image](https://github.com/user-attachments/assets/a3e71816-254e-4488-8f38-4a5ab887b373)
 
 Ожидаемые результаты:
 
