@@ -44,8 +44,7 @@
 4. Создайте VPC с подсетями в разных зонах доступности.
 5. Убедитесь, что теперь вы можете выполнить команды `terraform destroy` и `terraform apply` без дополнительных ручных действий.
 6. В случае использования [Terraform Cloud](https://app.terraform.io/) в качестве [backend](https://www.terraform.io/docs/language/settings/backends/index.html) убедитесь, что применение изменений успешно проходит, используя web-интерфейс Terraform cloud.
-
-![image](https://github.com/user-attachments/assets/5a57748b-8c92-4702-ac5a-6d98264ab1a7)
+![image](https://github.com/user-attachments/assets/6f6470c0-4ab0-4cea-9747-c82f18914d58)
 
 Ожидаемые результаты:
 
@@ -68,7 +67,7 @@
   б. С помощью terraform resource для [kubernetes node group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group)
   
 Ожидаемый результат:
-
+![image](https://github.com/user-attachments/assets/5a57748b-8c92-4702-ac5a-6d98264ab1a7)
 1. Работоспособный Kubernetes кластер.
 2. В файле `~/.kube/config` находятся данные для доступа к кластеру.
 3. Команда `kubectl get pods --all-namespaces` отрабатывает без ошибок.
