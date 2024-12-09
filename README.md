@@ -92,6 +92,8 @@
 
 мой собранный обаз
 ![image](https://github.com/user-attachments/assets/372f0920-3c6e-4477-a49b-c588f65d21e6)
+образ загружен
+![image](https://github.com/user-attachments/assets/78e1845c-eeea-4059-898f-8c66a11833f4)
 
 Ожидаемый результат:
 
