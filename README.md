@@ -96,7 +96,7 @@
 Ожидаемый результат:
 
 1. Git репозиторий с тестовым приложением и Dockerfile.
-2. Регистри с собранным [docker image] (https://hub.docker.com/repository/docker/goddim1979/test-app/general). В качестве регистри может быть DockerHub или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.
+2. Регистри с собранным [docker image](https://hub.docker.com/repository/docker/goddim1979/test-app/general). В качестве регистри может быть DockerHub или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.
 
 ---
 ### Подготовка cистемы мониторинга и деплой приложения
