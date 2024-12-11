@@ -131,6 +131,8 @@ Http доступ к web интерфейсу grafana.
 
 Дашборды в grafana отображающие состояние Kubernetes кластера.
 ![image](https://github.com/user-attachments/assets/68c425e8-0130-4c1e-bfe7-35dcad24026f)
+![image](https://github.com/user-attachments/assets/8dc2f3aa-fdfa-48cf-9c97-735af5974cb0)
+
 
 
 ### Установка и настройка CI/CD
