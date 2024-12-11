@@ -129,6 +129,10 @@ Http доступ к web интерфейсу grafana.
 Чтобы подключаться к серверу извне перенастроим сервисы(svc)
 ![image](https://github.com/user-attachments/assets/df846540-be30-48d9-b211-deaad7397e3a)
 
+Дашборды в grafana отображающие состояние Kubernetes кластера.
+![image](https://github.com/user-attachments/assets/68c425e8-0130-4c1e-bfe7-35dcad24026f)
+
+
 ### Установка и настройка CI/CD
 
 Осталось настроить ci/cd систему для автоматической сборки docker image и деплоя приложения при изменении кода.
