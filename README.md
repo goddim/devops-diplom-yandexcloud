@@ -125,6 +125,10 @@
 ![image](https://github.com/user-attachments/assets/c1b9d4bb-8cb3-4cac-9a4b-11f0c93231c2)
 ![image](https://github.com/user-attachments/assets/c2a41a50-45b6-43b2-884f-edf6266c29fc)
 
+Http доступ к web интерфейсу grafana.
+Чтобы подключаться к серверу извне перенастроим сервисы(svc)
+![image](https://github.com/user-attachments/assets/df846540-be30-48d9-b211-deaad7397e3a)
+
 ### Установка и настройка CI/CD
 
 Осталось настроить ci/cd систему для автоматической сборки docker image и деплоя приложения при изменении кода.
