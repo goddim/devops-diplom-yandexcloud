@@ -121,6 +121,10 @@
 3. Дашборды в grafana отображающие состояние Kubernetes кластера.
 4. Http доступ на 80 порту к тестовому приложению.
 ---
+Подготовка cистемы мониторинга
+![image](https://github.com/user-attachments/assets/c1b9d4bb-8cb3-4cac-9a4b-11f0c93231c2)
+![image](https://github.com/user-attachments/assets/c2a41a50-45b6-43b2-884f-edf6266c29fc)
+
 ### Установка и настройка CI/CD
 
 Осталось настроить ci/cd систему для автоматической сборки docker image и деплоя приложения при изменении кода.
