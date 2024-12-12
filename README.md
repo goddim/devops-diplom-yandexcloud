@@ -160,7 +160,8 @@ DOCKERHUB_USERNAME-goddim1979
 
 DOCKERHUB_TOKEN — github-actions
 
-KUBE_CONFIG_DATA — закодированные в Base64 данные конфигурации
+KUBE_CONFIG_DATA — закодированные в Base64 данные конфигурации - cat ~/.kube/config | base64 -w 0
+
 
 Ожидаемый результат:
 1. Интерфейс ci/cd сервиса доступен по http.
