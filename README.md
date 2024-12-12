@@ -165,8 +165,95 @@ KUBE_CONFIG_DATA — закодированные в Base64 данные кон�
 
 Ожидаемый результат:
 1. Интерфейс ci/cd сервиса доступен по http.
-2. При любом коммите в репозиторие с тестовым приложением происходит сборка и отправка в регистр Docker образа.
-3. При создании тега (например, v1.0.0) происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes.
+   ![image](https://github.com/user-attachments/assets/f5056ab0-3e5d-4106-a9fd-a034e7ab3e6e)
+
+3. При любом коммите в репозиторие с тестовым приложением происходит сборка и отправка в регистр Docker образа.
+ ci-cd.yml
+`name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+    branches:
+      - main
+
+env:
+  IMAGE_TAG: goddim1979/test-app
+  RELEASE_NAME: test-app
+  NAMESPACE: default
+
+jobs:
+  build-and-push:
+    name: Build and Push Docker Image
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Extract Version from Commit Message
+        id: extract-version
+        run: |
+          VERSION=$(echo "${{ github.event.head_commit.message }}" | sed -E 's/[^a-zA-Z0-9._-]/_/g')
+          if [[ ! -z "$VERSION" ]]; then
+            echo "VERSION=${VERSION}" >> $GITHUB_ENV
+          else
+            echo "VERSION=latest" >> $GITHUB_ENV
+          fi
+
+      - name: Build and Push Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE_TAG }}:${{ env.VERSION }}
+
+  deploy:
+    needs: build-and-push
+    name: Deploy to Kubernetes
+    if: startsWith(github.ref, 'refs/heads/main') || startsWith(github.ref, 'refs/tags/v')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Authenticate to Kubernetes Cluster
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        run: |
+          mkdir -p $HOME/.kube
+          echo "$KUBE_CONFIG_DATA" | base64 --decode > $HOME/.kube/config
+
+      - name: Extract Version from Commit Message
+        id: extract-version
+        run: |
+          VERSION=$(echo "${{ github.event.head_commit.message }}" | sed -E 's/[^a-zA-Z0-9._-]/_/g')
+          if [[ ! -z "$VERSION" ]]; then
+            echo "VERSION=${VERSION}" >> $GITHUB_ENV
+          else
+            echo "VERSION=latest" >> $GITHUB_ENV
+          fi
+
+      - name: Replace Image Tag in Kubernetes Manifests
+        run: |
+          sed -i "s|image: goddim1979/test-app:.*|image: ${{ env.IMAGE_TAG }}:${{ env.VERSION }}|" ./test-app/deploy.yaml
+
+      - name: Apply Kubernetes Manifests
+        run: |
+          kubectl apply -f ./test-app/deploy.yaml`
+
+5. При создании тега (например, v1.0.0) происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes.
 
 ---
 ## Что необходимо для сдачи задания?
