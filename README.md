@@ -148,8 +148,17 @@ Http доступ к web интерфейсу grafana.
 
 Можно использовать [teamcity](https://www.jetbrains.com/ru-ru/teamcity/), [jenkins](https://www.jenkins.io/), [GitLab CI](https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/) или GitHub Actions.
 
-Ожидаемый результат:
+Для автоматической сборки docker image и деплоя приложения при изменении кода буду использовать Github actions
 
+Для работы ci-cd в github action требуются учетные данные:
+
+- в DockerHub создаем Access Token (github-actions)
+
+ - Затем создаем в github секреты для доступа к DockerHub.
+DOCKERHUB_USERNAME
+DOCKERHUB_TOKEN — github-actions
+KUBE_CONFIG_DATA — закодированные в Base64 данные конфигурации
+Ожидаемый результат:
 1. Интерфейс ci/cd сервиса доступен по http.
 2. При любом коммите в репозиторие с тестовым приложением происходит сборка и отправка в регистр Docker образа.
 3. При создании тега (например, v1.0.0) происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes.
