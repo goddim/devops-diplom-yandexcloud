@@ -37,13 +37,21 @@
 Предварительная подготовка к установке и запуску Kubernetes кластера.
 
 1. Создайте сервисный аккаунт, который будет в дальнейшем использоваться Terraform для работы с инфраструктурой с необходимыми и достаточными правами. Не стоит использовать права суперпользователя
+  ![image](https://github.com/user-attachments/assets/4a59d06e-c7c7-4113-874b-6dbf17025fb2)
+
 2. Подготовьте [backend](https://www.terraform.io/docs/language/settings/backends/index.html) для Terraform:  
    а. Рекомендуемый вариант: S3 bucket в созданном ЯО аккаунте(создание бакета через TF)
    б. Альтернативный вариант:  [Terraform Cloud](https://app.terraform.io/)
-3. Создайте конфигурацию Terrafrom, используя созданный бакет ранее как бекенд для хранения стейт файла. Конфигурации Terraform для создания сервисного аккаунта и бакета и основной инфраструктуры следует сохранить в разных папках.
-4. Создайте VPC с подсетями в разных зонах доступности.
-5. Убедитесь, что теперь вы можете выполнить команды `terraform destroy` и `terraform apply` без дополнительных ручных действий.
-6. В случае использования [Terraform Cloud](https://app.terraform.io/) в качестве [backend](https://www.terraform.io/docs/language/settings/backends/index.html) убедитесь, что применение изменений успешно проходит, используя web-интерфейс Terraform cloud.
+   ![image](https://github.com/user-attachments/assets/c04918cc-2d51-40a3-84cf-8b656a322879)
+
+4. Создайте конфигурацию Terrafrom, используя созданный бакет ранее как бекенд для хранения стейт файла. Конфигурации Terraform для создания сервисного аккаунта и бакета и основной инфраструктуры следует сохранить в разных папках.
+   ![image](https://github.com/user-attachments/assets/6b2dfeae-965c-4957-9352-c9f546a72e2b)
+
+6. Создайте VPC с подсетями в разных зонах доступности.
+   ![image](https://github.com/user-attachments/assets/b92cf3ae-ba36-4efc-a3f1-6c543b974ea4)
+
+8. Убедитесь, что теперь вы можете выполнить команды `terraform destroy` и `terraform apply` без дополнительных ручных действий.
+9. В случае использования [Terraform Cloud](https://app.terraform.io/) в качестве [backend](https://www.terraform.io/docs/language/settings/backends/index.html) убедитесь, что применение изменений успешно проходит, используя web-интерфейс Terraform cloud.
 ![image](https://github.com/user-attachments/assets/db8d4452-e859-454e-bced-66443d655517)
 ![image](https://github.com/user-attachments/assets/a3e71816-254e-4488-8f38-4a5ab887b373)
 
