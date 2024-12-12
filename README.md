@@ -155,9 +155,13 @@ Http доступ к web интерфейсу grafana.
 - в DockerHub создаем Access Token (github-actions)
 
  - Затем создаем в github секреты для доступа к DockerHub.
-DOCKERHUB_USERNAME
+   
+DOCKERHUB_USERNAME-goddim1979
+
 DOCKERHUB_TOKEN — github-actions
+
 KUBE_CONFIG_DATA — закодированные в Base64 данные конфигурации
+
 Ожидаемый результат:
 1. Интерфейс ci/cd сервиса доступен по http.
 2. При любом коммите в репозиторие с тестовым приложением происходит сборка и отправка в регистр Docker образа.
