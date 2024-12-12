@@ -133,12 +133,9 @@ Http доступ к web интерфейсу grafana.
 ![image](https://github.com/user-attachments/assets/68c425e8-0130-4c1e-bfe7-35dcad24026f)
 ![image](https://github.com/user-attachments/assets/8dc2f3aa-fdfa-48cf-9c97-735af5974cb0)
 
-Atlantis настроен и запущен
-![image](https://github.com/user-attachments/assets/c122d9dc-2632-446d-8e69-8e4803986c3c)
+![image](https://github.com/user-attachments/assets/8ee35364-930f-435f-9697-087f6473dc10)
+![image](https://github.com/user-attachments/assets/b70a7ba3-3f8b-4a00-8f90-50891737c78b)
 
-Создание деплоя nginx. Expose деплоя через NodePor.Проверка созданного сервиса.
-
-![image](https://github.com/user-attachments/assets/a1e68a22-6bac-4752-92d8-bed3fd193a27)
 
 ### Установка и настройка CI/CD
 
