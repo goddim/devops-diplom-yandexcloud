@@ -216,7 +216,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.IMAGE_TAG }}:${{ env.VERSION }}
+          tags: ${{ env.IMAGE_TAG }}:${{ github.ref_name }}  # Используем имя тега из Git
 
   deploy:
     needs: build-and-push
@@ -247,15 +247,19 @@ jobs:
 
       - name: Replace Image Tag in Kubernetes Manifests
         run: |
-          sed -i "s|image: goddim1979/test-app:.*|image: ${{ env.IMAGE_TAG }}:${{ env.VERSION }}|" ./test-app/deploy.yaml
+          sed -i "s|image: goddim1979/test-app:.*|image: ${{ env.IMAGE_TAG }}:${{ github.ref_name }}|" ./test-app/deploy.yaml
 
       - name: Apply Kubernetes Manifests
         run: |
           kubectl apply -f ./test-app/deploy.yaml
+
 ```
 
 
-5. При создании тега (например, v1.0.0) происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes.
+3. При создании тега (например, v1.0.0) происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes.
+![image](https://github.com/user-attachments/assets/3d4f4e67-8191-4b3f-b010-2a67453c4570)
+![image](https://github.com/user-attachments/assets/65c292bb-ea45-460f-8378-a241080f0276)
+![image](https://github.com/user-attachments/assets/7509b543-e86a-4200-be6e-1a474a328a8e)
 
 ---
 ## Что необходимо для сдачи задания?
