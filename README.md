@@ -251,7 +251,8 @@ jobs:
 
       - name: Apply Kubernetes Manifests
         run: |
-          kubectl apply -f ./test-app/deploy.yaml```
+          kubectl apply -f ./test-app/deploy.yaml
+```
 
 
 5. При создании тега (например, v1.0.0) происходит сборка и отправка с соответствующим label в регистри, а также деплой соответствующего Docker образа в кластер Kubernetes.
