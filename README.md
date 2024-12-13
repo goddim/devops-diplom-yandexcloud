@@ -77,6 +77,7 @@
   б. С помощью terraform resource для [kubernetes node group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group)
   
 Ожидаемый результат:
+
 Файл inventory для ansible playbook [hosts.yaml](https://github.com/goddim/devops-diplom-yandexcloud/blob/main/kubespray/inventory/mycluster/hosts.yaml)
 1. Работоспособный Kubernetes кластер.
 ![image](https://github.com/user-attachments/assets/13f462e1-5506-4600-ba8f-641bfefe593c)
