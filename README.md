@@ -103,15 +103,21 @@
 2. Альтернативный вариант:  
    а. Используйте любой другой код, главное, чтобы был самостоятельно создан Dockerfile.
 
-мой собранный обаз
-![image](https://github.com/user-attachments/assets/372f0920-3c6e-4477-a49b-c588f65d21e6)
-образ загружен
-![image](https://github.com/user-attachments/assets/78e1845c-eeea-4059-898f-8c66a11833f4)
+
+
 
 Ожидаемый результат:
 
 1. [Git](https://github.com/goddim/test-app) репозиторий с тестовым приложением и [Dockerfile](https://github.com/goddim/test-app/blob/main/Dockerfile).
-2. Регистри с собранным [docker image](https://hub.docker.com/repository/docker/goddim1979/test-app/general). В качестве регистри может быть DockerHub или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.
+   
+3. Регистри с собранным [docker image](https://hub.docker.com/repository/docker/goddim1979/test-app/general). В качестве регистри может быть DockerHub или [Yandex Container Registry](https://cloud.yandex.ru/services/container-registry), созданный также с помощью terraform.
+   
+мой собранный образ
+
+![image](https://github.com/user-attachments/assets/372f0920-3c6e-4477-a49b-c588f65d21e6)
+образ загружен
+
+![image](https://github.com/user-attachments/assets/78e1845c-eeea-4059-898f-8c66a11833f4)
 
 ---
 ### Подготовка cистемы мониторинга и деплой приложения
