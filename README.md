@@ -77,10 +77,12 @@
   б. С помощью terraform resource для [kubernetes node group](https://registry.terraform.io/providers/yandex-cloud/yandex/latest/docs/resources/kubernetes_node_group)
   
 Ожидаемый результат:
-![image](https://github.com/user-attachments/assets/13f462e1-5506-4600-ba8f-641bfefe593c)
 1. Работоспособный Kubernetes кластер.
+![image](https://github.com/user-attachments/assets/13f462e1-5506-4600-ba8f-641bfefe593c)
+
 2. В файле `~/.kube/config` находятся данные для доступа к кластеру.
-3. ![image](https://github.com/user-attachments/assets/de48afac-aab3-4649-8a98-cfb5d1f5b985)
+![image](https://github.com/user-attachments/assets/9214e6c9-0b01-4781-a7c0-21a0aaed3472)
+
 
 4. Команда `kubectl get pods --all-namespaces` отрабатывает без ошибок.
 ![image](https://github.com/user-attachments/assets/a2f357a9-6c96-4ddd-8e1f-5c495ed5eaf3)
