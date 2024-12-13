@@ -1,122 +1,49 @@
-.lock.hcl
-.tfstate
-.vagrant
-*.retry
-**/vagrant_ansible_inventory
-*.iml
-temp
-contrib/offline/offline-files
-contrib/offline/offline-files.tar.gz
-.idea
-.vscode
-.tox
-.cache
-*.bak
+# Ignore the Terraform state files and backups
 *.tfstate
-*.tfstate*backup
-*.lock.hcl
+*.tfstate.*
+*.tfvars
+*.tfvars.json
 .terraform/
-contrib/terraform/aws/credentials.tfvars
+
+# Ignore the .terraform.lock.hcl file
 .terraform.lock.hcl
-/ssh-bastion.conf
-**/*.sw[pon]
-*~
-vagrant/
-plugins/mitogen
 
-# Ansible inventory
-inventory/*
-!inventory/local
-!inventory/sample
-inventory/*/artifacts/
+# Ignore Terraform plan files
+plan*.out
 
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+# Ignore editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Distribution / packaging
-.Python
-env/
-build/
-credentials/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-parts/
-sdist/
-var/
-*.egg-info/
-.installed.cfg
-*.egg
+# Ignore node_modules for any node.js projects
+node_modules/
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*,cover
-.hypothesis/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# IPython Notebook
-.ipynb_checkpoints
-
-# pyenv
-.python-version
-
-# dotenv
+# Ignore .env files for environment variables
 .env
 
-# virtualenv
-venv/
-ENV/
+# Ignore Kubernetes config
+.kube/
 
-# molecule
-roles/**/molecule/**/__pycache__/
+# Ignore Dockerfile and image files
+Dockerfile
+*.img
+*.tar
+*.log
 
-# macOS
+# Ignore logs
+*.log
+
+# Ignore test and temporary files
+test-infra/
+tests/
+
+# Ignore system files (macOS, Windows)
 .DS_Store
+Thumbs.db
 
-# Temp location used by our scripts
-scripts/tmp/
-tmp.md
-
-# Ansible collection files
-kubernetes_sigs-kubespray*tar.gz
-ansible_collections
+# Ignore configuration files that shouldn't be in version control
+*.pem
+*.crt
+*.key
