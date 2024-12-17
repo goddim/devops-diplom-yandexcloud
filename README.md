@@ -155,7 +155,8 @@ goddim@goddim-VirtualBox:~/devops-diplom-yandexcloud/terraform$
 Ожидаемый результат:
 
 Файл inventory для ansible playbook [hosts.yaml](https://github.com/goddim/devops-diplom-yandexcloud/blob/main/kubespray/inventory/mycluster/hosts.yaml)
-подготовил скрипт ./generate-inventory.sh 
+
+подготовил скрипт для автоматического создания ивентара из output  ./generate-inventory.sh 
 ```
 #!/bin/bash
 
@@ -223,7 +224,7 @@ else
 fi
 ```
 
-для автоматисеского создания ивентара из output 
+ 
 ![image](https://github.com/user-attachments/assets/bba6590f-505f-4b37-99b8-4cbfa1e378f3)
 
 1. Работоспособный Kubernetes кластер.
