@@ -1,0 +1,34 @@
+{
+  "external_ip_address_nodes": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "node-0": "string",
+        "node-1": "string",
+        "node-2": "string"
+      }
+    ],
+    "value": {
+      "node-0": "89.169.158.13",
+      "node-1": "158.160.76.120",
+      "node-2": "51.250.40.79"
+    }
+  },
+  "internal_ip_address_nodes": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "node-0": "string",
+        "node-1": "string",
+        "node-2": "string"
+      }
+    ],
+    "value": {
+      "node-0": "10.0.0.29",
+      "node-1": "10.0.1.26",
+      "node-2": "10.0.2.19"
+    }
+  }
+}

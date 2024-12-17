@@ -1,33 +1,3 @@
-devops-diplom-yandexcloud/
-├── terraform/
-│   ├── backend/
-│   │   ├── main.tf                  # Конфигурация для backend и создания S3-бакета
-│   │   ├── variables.tf             # Определение переменных
-│   │   ├── backend.config           # Конфигурация для S3 backend
-│   │   ├── terraform.tfvars         # Значения переменных
-│   │   ├── outputs.tf               # Определение выводов (опционально)
-│   │   └── .terraform/              # Локальные файлы Terraform (автоматически создаются)
-│   │       ├── providers/           # Кэшированные плагины провайдеров
-│   │       └── terraform.tfstate    # Локальное состояние Terraform
-│   ├── auth/
-│   │   ├── main.tf                  # Конфигурация для сервисных аккаунтов и ролей
-│   │   ├── variables.tf             # Определение переменных
-│   │   ├── terraform.tfvars         # Значения переменных
-│   │   └── outputs.tf               # Определение выводов
-│   └── infra/
-│       ├── main.tf                  # Основная инфраструктура (если используется)
-│       ├── variables.tf             # Определение переменных
-│       ├── terraform.tfvars         # Значения переменных
-│       └── outputs.tf               # Определение выводов
-├── README.md                        # Документация проекта (опционально)
-└── .gitignore                       # Исключение файлов для Git
-
-Пояснения:
-backend/ – Каталог для настройки S3 backend и хранения состояния Terraform.
-auth/ – Конфигурация для работы с сервисными аккаунтами, ролями и правами доступа.
-infra/ – Основная инфраструктура, например, виртуальные машины, сети, базы данных и т. д.
-.terraform/ – Временные файлы Terraform, не включайте их в систему контроля версий.
-terraform.tfvars – Хранит значения переменных для использования в конфигурациях Terraform.
 
 1 Шаг. создание сервисного каталога с ролями и создание бакета
 cd /home/goddim/devops-diplom-yandexcloud/terraform/bucket
@@ -38,11 +8,18 @@ terraform apply
 
 
 
-2 Шаг. создание сетей подсетей и нод
-cd /home/goddim/devops-diplom-yandexcloud/03-preparation-yc
-Если есть проблема с доступом проверяем ключи, то создаем ключи c yc iam access-key create --service-account-name=sa
- и вносим их в backend.key и в раздел
+2 Шаг. подключение бакета для хранения состояни, создание сетей подсетей и нод
 
+cd /home/goddim/devops-diplom-yandexcloud/terraform
+terraform init -backend-config=./backend.key
+terraform apply
+2.5 Генерируем ansible playbook hosts.yaml из output терраформа.
+Запускаем скрипт :
+./generate-inventory.sh
+------
+предварительно проверяем установленно 
+yq --version
+jq --version
 
 _________________________________
 
