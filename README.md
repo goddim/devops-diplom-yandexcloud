@@ -45,7 +45,82 @@
    ![image](https://github.com/user-attachments/assets/c04918cc-2d51-40a3-84cf-8b656a322879)
 
 4. Создайте конфигурацию Terrafrom, используя созданный бакет ранее как бекенд для хранения стейт файла. Конфигурации Terraform для создания сервисного аккаунта и бакета и основной инфраструктуры следует сохранить в разных папках.
-   ![image](https://github.com/user-attachments/assets/6b2dfeae-965c-4957-9352-c9f546a72e2b)
+![image](https://github.com/user-attachments/assets/e69288b4-d8c0-4a27-baa9-e9e82d491752)
+
+Бекенд настроендля терраформа с использованием бакета.
+```goddim@goddim-VirtualBox:~/devops-diplom-yandexcloud/terraform$ terraform init -backend-config=./backend.key
+
+Initializing the backend...
+Do you want to copy existing state to the new backend?
+  Pre-existing state was found while migrating the previous "local" backend to the
+  newly configured "s3" backend. No existing state was found in the newly
+  configured "s3" backend. Do you want to copy this state to the new "s3"
+  backend? Enter "yes" to copy and "no" to start with an empty state.
+
+  Enter a value: yes
+
+
+Successfully configured the backend "s3"! Terraform will automatically
+use this backend unless the backend configuration changes.
+
+Initializing provider plugins...
+- Reusing previous version of yandex-cloud/yandex from the dependency lock file
+- Using previously-installed yandex-cloud/yandex v0.134.0
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+goddim@goddim-VirtualBox:~/devops-diplom-yandexcloud/terraform$ terraform apply
+yandex_vpc_network.subnet-zones: Refreshing state... [id=enpuh2tk69ro5k3pq53r]
+yandex_vpc_subnet.subnet-zones[2]: Refreshing state... [id=fl8e8glf7t1fulm8n5l5]
+yandex_vpc_subnet.subnet-zones[0]: Refreshing state... [id=e9b3p0klort9eqrvphhm]
+yandex_vpc_subnet.subnet-zones[1]: Refreshing state... [id=e2lrdovrtd7olg7qghiq]
+yandex_compute_instance.vm[0]: Refreshing state... [id=fhmpi43eulvmluf3stdp]
+yandex_compute_instance.vm[1]: Refreshing state... [id=epd1vvmrdhj2lmsulb4u]
+yandex_compute_instance.vm[2]: Refreshing state... [id=fv4ja9nahhigm16kd5cv]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration and found no differences, so no changes are needed.
+
+Apply complete! Resources: 0 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+external_ip_address_nodes = {
+  "node-0" = "51.250.6.220"
+  "node-1" = "89.169.161.98"
+  "node-2" = "158.160.153.213"
+}
+internal_ip_address_nodes = {
+  "node-0" = "10.0.0.26"
+  "node-1" = "10.0.1.34"
+  "node-2" = "10.0.2.13"
+}
+goddim@goddim-VirtualBox:~/devops-diplom-yandexcloud/terraform$ yc storage s3api head-object --bucket yashkin-2024 --key terraform/terraform.tfstate
+etag: '"3122f2de58153783159faac905133272"'
+request_id: ae62e6d6105e0d9a
+accept_ranges: bytes
+content_length: "16594"
+content_type: application/json
+last_modified_at: "2024-12-17T04:00:55Z"
+
+goddim@goddim-VirtualBox:~/devops-diplom-yandexcloud/terraform$ terraform state list
+yandex_compute_instance.vm[0]
+yandex_compute_instance.vm[1]
+yandex_compute_instance.vm[2]
+yandex_vpc_network.subnet-zones
+yandex_vpc_subnet.subnet-zones[0]
+yandex_vpc_subnet.subnet-zones[1]
+yandex_vpc_subnet.subnet-zones[2]
+goddim@goddim-VirtualBox:~/devops-diplom-yandexcloud/terraform$ ```
+   
 
 6. Создайте VPC с подсетями в разных зонах доступности.
    ![image](https://github.com/user-attachments/assets/b92cf3ae-ba36-4efc-a3f1-6c543b974ea4)
