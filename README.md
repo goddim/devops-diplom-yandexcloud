@@ -119,7 +119,8 @@ yandex_vpc_network.subnet-zones
 yandex_vpc_subnet.subnet-zones[0]
 yandex_vpc_subnet.subnet-zones[1]
 yandex_vpc_subnet.subnet-zones[2]
-goddim@goddim-VirtualBox:~/devops-diplom-yandexcloud/terraform$```
+goddim@goddim-VirtualBox:~/devops-diplom-yandexcloud/terraform$
+```
    
 
 6. Создайте VPC с подсетями в разных зонах доступности.
